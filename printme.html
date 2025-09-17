@@ -4,31 +4,34 @@
     <title>Click Image to Print</title>
     <style>
       body {
-        text-align: center;
-        padding: 40px;
+        margin: 0;             /* remove default margin */
+        padding: 0;            /* remove default padding */
       }
       img {
-        width: 50px;  /* stays small on screen */
+        width: 50px;           /* small on screen */
         height: 50px;
         cursor: pointer;
+        display: block;
       }
 
       /* Print settings */
       @media print {
         @page {
-          size: A4;   /* force A4 paper */
-          margin: 0;  /* optional: remove margins */
+          size: A4;
+          margin: 0;           /* no page margins */
+        }
+        body {
+          margin: 0;
+          padding: 0;
         }
         img {
-          width: 100%;   /* scale image to fill A4 width */
-          height: auto;
+          width: 50px;         /* keeps size in print */
+          height: 50px;
         }
       }
     </style>
   </head>
   <body>
-    <img src="printpdf.png" 
-         alt="Click to print"
-         onclick="window.print()">
+    <img src="printpdf.png" alt="Click to print" onclick="window.print()">
   </body>
 </html>
